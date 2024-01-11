@@ -14,8 +14,8 @@ export default {
         'rubik': ['Rubik', 'sans-serif'],
       },
       backgroundImage: theme => ({
-        'desktop': "url('./images/pattern-bg-desktop.png')",
-        'mobile': "url('./images/pattern-bg-mobile.png')",
+        'desktop': "url('../src/assets/images/pattern-bg-desktop.png')",
+        'mobile': "url('../src/assets/images/pattern-bg-mobile.png')",
       }),
       plugins: [],
     }
