@@ -1,10 +1,12 @@
 import React,{useEffect} from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { LocationMapProps, ChangeViewProps } from "../types";
 import {images} from '../constants/images'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-const ChangeView = ({ center, zoom }) => {
+
+const ChangeView = ({ center, zoom }: ChangeViewProps) => {
     const map = useMap();
     useEffect(() => {
         map.setView(center, zoom);
@@ -19,10 +21,7 @@ const blackIcon = L.icon({
     popupAnchor: [1, -34],
 });
 
-interface LocationMapProps {
-    position: number[];
-    zoom: number;
-  }
+
 
 const LocationMap: React.FC<LocationMapProps> = ({position, zoom}) => {
     
@@ -31,13 +30,14 @@ const LocationMap: React.FC<LocationMapProps> = ({position, zoom}) => {
     // setPosition([newLat, newLng]);
     // setZoom(newZoom);
 
+
     return (
-            <MapContainer center={position} zoom={zoom} scrollWheelZoom={false} className='w-full h-3/5 z-0'>
-                <ChangeView center={position} zoom={zoom} />
+            <MapContainer className='w-full h-full z-0'>
+                <ChangeView center={[position.latitude, position.longitude]} zoom={zoom} />
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={position} icon={blackIcon}>
+                <Marker position={[position.latitude, position.longitude]} icon={blackIcon}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
