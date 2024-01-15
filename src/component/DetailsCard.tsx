@@ -1,5 +1,6 @@
 import React from 'react';
 import { DetailsCardProps } from '../types';
+import Loader from './Loader';
 
 
 
@@ -18,20 +19,20 @@ const DetailsCard: React.FC<DetailsCardProps> = ({ geoData }) => {
             <div className='flex flex-col justify-center items-center md:gap-4 lg:border-r-2 lg:border-gray-200 lg:not:last-child'>
                 <p className='text-very-dark-grey/50 text-sm font-semibold uppercase'>IP Address</p>
                 <p className='text-very-dark-grey text-xl font-bold'>
-                    {geoData.ip || ''}
+                    {geoData.ip || <Loader />}
                 </p>
             </div>
             <div className='flex flex-col justify-center items-center md:gap-4 lg:border-r-2 lg:border-gray-200 lg:not:last-child'>
                 <p className='text-very-dark-grey/50 text-sm font-semibold uppercase'>Location</p>
-                <p className='text-very-dark-grey text-xl font-bold'>{geoData.location}</p>
+                <p className='text-very-dark-grey text-xl font-bold'>{geoData.location || <Loader />}</p>
             </div>
             <div className='flex flex-col justify-center items-center md:gap-4 lg:border-r-2 lg:border-gray-200 lg:not:last-child'>
                 <p className='text-very-dark-grey/50 text-sm font-semibold uppercase'>Timezone</p>
-                <p className='text-very-dark-grey text-xl font-bold'>UTC {timeZoneOffsetSign} {Number(timeZoneOffsetHours)}:{timeZoneOffsetMinutes}</p>
+                <p className='text-very-dark-grey text-xl font-bold'>{geoData.time_zone ? `UTC ${timeZoneOffsetSign} ${Number(timeZoneOffsetHours)}:${timeZoneOffsetMinutes}` : <Loader />}</p>
             </div>
             <div className='flex flex-col justify-center items-center md:gap-4'>
                 <p className='text-very-dark-grey/50 text-sm font-semibold uppercase'>ISP</p>
-                <p className='text-very-dark-grey text-xl font-semibold'>{geoData.isp}</p>
+                <p className='text-very-dark-grey text-xl font-semibold'>{geoData.isp || <Loader />}</p>
             </div>
         </div>
     )
