@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import { LocationMapProps, ChangeViewProps } from "../types";
 import {images} from '../constants/images'
+//@ts-ignore
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -37,6 +38,7 @@ const LocationMap: React.FC<LocationMapProps> = ({position, zoom}) => {
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                {/* @ts-ignore */}
                 <Marker position={[position.latitude, position.longitude]} icon={blackIcon}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.

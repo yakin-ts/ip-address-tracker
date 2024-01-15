@@ -10,11 +10,6 @@ interface Position {
     longitude: number;
 }
 
-interface Center {
-    lat: number;
-    lng: number;
-}
-
 interface AppState {
     geoData: GeoData;
     position: Position;
