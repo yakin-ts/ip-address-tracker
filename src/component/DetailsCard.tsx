@@ -4,6 +4,7 @@ import Loader from './Loader';
 
 
 
+
 const DetailsCard: React.FC<DetailsCardProps> = ({ geoData }) => {
 
     let timeZoneOffsetSign, timeZoneOffsetHours, timeZoneOffsetMinutes;
