@@ -3,7 +3,7 @@ import { images } from '../constants/images';
 import { HeaderProps } from '../types';
 
 const Header: React.FC<HeaderProps> = ({ipAddress, onChange, onSubmit, loading, error}) => {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
         onSubmit(e);
     };
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ipAddress, onChange, onSubmit, loading, 
                     }
                 </button>
             </form>
-            {error && <p className='w-3/5 mx-auto text-red-500 border-red-500 border rounded-lg px-4 py-2 bg-red-300 text-center mt-2'>{error}</p>}
+            {error && <p className='relative z-50 w-3/5 mx-auto text-red-500 border-red-500 border rounded-lg px-4 py-2 bg-red-300 text-center mt-2'>{error}</p>}
         </div>
     )
 }
