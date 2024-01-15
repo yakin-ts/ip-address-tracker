@@ -71,7 +71,7 @@ function App() {
         setGeoData({
           ip: res.ip,
           location: `${res.city}, ${res.state_code} ${res.zipcode}`,
-          time_zone: res.time_zone.currentt_time.slice(-5),
+          time_zone: res.time_zone.current_time.slice(-5),
           isp: res.isp
         })
         setPosition({ latitude: Number(res.latitude), longitude: Number(res.longitude) })
